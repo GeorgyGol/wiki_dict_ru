@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b96b50f-136e-434c-aef3-31f59cabc293" name="Default Changelist" comment="" />
+    <list default="true" id="3b96b50f-136e-434c-aef3-31f59cabc293" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/make_dict/read_nouns.py" beforeDir="false" afterPath="$PROJECT_DIR$/make_dict/read_nouns.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +36,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/make_dict/read_nouns.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="105" column="33" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+            <state relative-caret-position="375">
+              <caret line="144" column="102" lean-forward="true" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="106" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#2139#2361#0" />
+                <element signature="e#3207#3389#0" />
               </folding>
             </state>
           </provider>
@@ -51,6 +55,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -67,6 +74,7 @@
     <option name="width" value="1231" />
     <option name="height" value="992" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -193,13 +201,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1231" height="999" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.120033115" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120033115" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32912844" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32873562" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -233,10 +242,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/make_dict/read_nouns.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="105" column="33" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+        <state relative-caret-position="375">
+          <caret line="144" column="102" lean-forward="true" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="106" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#2139#2361#0" />
+            <element signature="e#3207#3389#0" />
           </folding>
         </state>
       </provider>

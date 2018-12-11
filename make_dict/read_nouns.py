@@ -15,6 +15,8 @@ class rijech:
     _main_soup=None
     _work_soup=None
     _soup_of_values=[]
+    _info=dict()
+    _lst_cases = ['Им.Еч', 'Им.Мч', 'Р.Еч', 'Р.Мч', 'Д.Еч', 'Д.Мч', 'В.Еч', 'В.Мч', 'Тв.Еч', 'Тв.Мч', 'Пр.Еч', 'Пр.Мч']
 
     _root_suff = re.compile(
             r'(?i)(?:Приставк\w+: (?P<pre>[а-я-]+);)?\s?(?:Кор\w+: (?P<root>-[а-я]+-);?)+\s?(?:суффикс\w?: (?P<suff>[а-я-]+);?)?\s?(?:окончани\w?: (?P<ends>[а-я-]+);?)?')
@@ -46,6 +48,9 @@ class rijech:
                 lst_ret.append(' '.join([str(t) for t in lst_siblings]))
         return lst_ret
 
+    def source_case(self):
+        cases=[k for k, v in self._info.items() if k in self._lst_cases and re.search(r'\b{}\b'.format(self._strName), v)]
+        return  cases
 
     def get_page(self, session=None):
         ht = session.get(self._strUrl)
@@ -55,8 +60,10 @@ class rijech:
 
         h1 = self._main_soup.find('span', class_='mw-headline', id='Русский', text='Русский').parent
         self._work_soup = BeautifulSoup(' '.join([str(t) for t in h1.next_siblings]), 'html.parser')
+        h1=self._main_soup.find('h1', class_='firstHeading')
+        print(h1.text)
 
-        hs = [h.parent for h in self._work_soup.findAll('span', class_='mw-headline', text=re.compile(self._strName))]
+        hs = [h.parent for h in self._work_soup.findAll('span', class_='mw-headline', text=re.compile(h1.text))]
         work_list = None
 
         if hs:
@@ -114,13 +121,14 @@ class rijech:
     def parse(self):
 
         for n, sp in enumerate(self._soup_of_values):
-            dict_ret={'value':n}
+
+            self._info ={'value':n}
             sp3s = [BeautifulSoup(h, 'html.parser') for h in self._get_page_parts(split_tags='h3')]
             #sp3s[0] => morfo
-            dict_ret.update(self._get_morfo(sp3s[0]))
-            dict_ret.update(self._get_cases(sp3s[0]))
+            self._info.update(self._get_morfo(sp3s[0]))
+            self._info.update(self._get_cases(sp3s[0]))
 
-            for k, v in dict_ret.items():
+            for k, v in self._info.items():
                 print('{}:{}'.format(k, v))
 
 
@@ -131,15 +139,15 @@ def main():
     #r_test=rijech(link=r'https://ru.wiktionary.org/wiki/%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%88%D0%B5%D1%87%D0%BA%D0%B0',
     #                name='картошечка')
 
-    r_test = rijech(link=r'https://ru.wiktionary.org/wiki/%D0%BA%D0%BE%D1%88%D0%BA%D0%B0', name='кошка')
+    #r_test = rijech(link=r'https://ru.wiktionary.org/wiki/%D0%BA%D0%BE%D1%88%D0%BA%D0%B0', name='кошками')
     #r_test = rijech(link=r'https://ru.wiktionary.org/wiki/%D0%BA%D0%BE%D1%87%D0%B5%D1%82', name='кочет')
     #r_test = rijech(link=r'https://ru.wiktionary.org/wiki/%D1%81%D0%BE%D0%B1%D0%B8%D0%BD%D0%BA%D0%B0', name='собинка')
-    #r_test = rijech(link=r'https://ru.wiktionary.org/wiki/%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D1%80%D0%BE%D1%82', name='приворот')
+    r_test = rijech(link=r'https://ru.wiktionary.org/wiki/%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D1%80%D0%BE%D1%82', name='приворот')
 
     r_test.get_page(session=sess)
 
     r_test.parse()
-
+    print(r_test.source_case())
     #pdfn = pd.read_csv('ru_nouns.csv', sep=';', index_col=0)
     #print(pdfn)
 
