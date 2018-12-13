@@ -8,6 +8,10 @@ req_header = {'accept': r'text/html,application/xhtml+xml,application/xml;q=0.9,
               'user-agent': r'Mozilla/5.0 (Windows NT 5.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36}'}
 
 
+def pairwise(lst):
+    '''pairwise list with add None element to the end'''
+    lst2 = lst[1:] + [None]
+    return tuple(zip(lst, lst2))
 
 def main():
     str1='Корень: -кош-; суффикс: -к; окончание: -а. '.lower()
